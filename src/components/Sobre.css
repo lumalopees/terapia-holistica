@@ -1,31 +1,11 @@
 .sobre {
   padding: var(--espacamento-xl) 0;
-  background-color: var(--cor-branco);
+  background-color: var(--bg-primary);
 }
 
 .sobre-content {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
-}
-
-.section-title {
-  text-align: center;
-  margin-bottom: var(--espacamento-lg);
-  color: var(--cor-texto-escuro);
-  position: relative;
-  padding-bottom: var(--espacamento-sm);
-}
-
-.section-title::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 3px;
-  background: linear-gradient(to right, var(--cor-verde-claro), var(--cor-verde-escuro), var(--cor-verde-claro));
-  border-radius: 2px;
 }
 
 .sobre-text {
@@ -34,24 +14,26 @@
 
 .sobre-intro {
   font-size: 1.2rem;
-  color: var(--cor-texto-escuro);
-  margin-bottom: var(--espacamento-md);
+  color: var(--text-secondary);
   line-height: 1.8;
-  font-weight: 500;
+  margin-bottom: var(--espacamento-md);
 }
 
 .sobre-text p {
   font-size: 1.1rem;
-  line-height: 1.9;
-  color: var(--cor-texto-medio);
+  color: var(--text-secondary);
+  line-height: 1.8;
   margin-bottom: var(--espacamento-md);
 }
 
 .sobre-destaque {
-  font-style: italic;
-  color: var(--cor-verde-escuro) !important;
-  font-size: 1.15rem !important;
-  margin-top: var(--espacamento-md);
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  font-weight: 500;
+  padding: var(--espacamento-md);
+  background-color: var(--bg-secondary);
+  border-radius: 10px;
+  border-left: 4px solid var(--cor-verde-escuro);
 }
 
 @media (max-width: 768px) {
@@ -59,28 +41,20 @@
     padding: var(--espacamento-lg) 0;
   }
 
-  .sobre-content {
+  .sobre-intro {
+    font-size: 1.1rem;
     padding: 0 var(--espacamento-sm);
   }
-  
-  .section-title {
-    font-size: 1.8rem;
-    margin-bottom: var(--espacamento-md);
-  }
-  
-  .sobre-intro {
-    font-size: 1.05rem;
-    margin-bottom: var(--espacamento-sm);
-  }
-  
+
   .sobre-text p {
-    font-size: 0.95rem;
-    margin-bottom: var(--espacamento-sm);
+    font-size: 1rem;
+    padding: 0 var(--espacamento-sm);
   }
 
   .sobre-destaque {
-    font-size: 1rem !important;
-    margin-top: var(--espacamento-sm);
+    font-size: 1.05rem;
+    padding: var(--espacamento-sm);
+    margin: 0 var(--espacamento-sm);
   }
 }
 
@@ -89,22 +63,15 @@
     padding: var(--espacamento-md) 0;
   }
 
-  .section-title {
-    font-size: 1.6rem;
-    margin-bottom: var(--espacamento-sm);
-  }
-  
   .sobre-intro {
     font-size: 1rem;
   }
-  
+
   .sobre-text p {
-    font-size: 0.9rem;
-    line-height: 1.7;
+    font-size: 0.95rem;
   }
 
   .sobre-destaque {
-    font-size: 0.95rem !important;
+    font-size: 1rem;
   }
 }
-

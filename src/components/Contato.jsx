@@ -1,4 +1,5 @@
 import React from 'react'
+import { FaWhatsapp, FaCheck } from 'react-icons/fa'
 import './Contato.css'
 
 function Contato() {
@@ -20,7 +21,7 @@ function Contato() {
           </p>
           <div className="contato-cta">
             <button className="btn-whatsapp" onClick={handleWhatsAppClick}>
-              <span className="whatsapp-icon">💬</span>
+              <FaWhatsapp className="whatsapp-icon" />
               Falar no WhatsApp
             </button>
             <p className="contato-info">
@@ -29,15 +30,15 @@ function Contato() {
           </div>
           <div className="contato-beneficios">
             <div className="beneficio-item">
-              <span className="beneficio-icon">✓</span>
+              <FaCheck className="beneficio-icon" />
               <span>Primeira conversa sem compromisso</span>
             </div>
             <div className="beneficio-item">
-              <span className="beneficio-icon">✓</span>
+              <FaCheck className="beneficio-icon" />
               <span>Horários flexíveis</span>
             </div>
             <div className="beneficio-item">
-              <span className="beneficio-icon">✓</span>
+              <FaCheck className="beneficio-icon" />
               <span>Atendimento humanizado</span>
             </div>
           </div>
@@ -48,4 +49,5 @@ function Contato() {
 }
 
 export default Contato
+
 

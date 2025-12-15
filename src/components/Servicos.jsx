@@ -1,23 +1,36 @@
 import React from 'react'
+import { FaLeaf, FaHeart, FaUser, FaBalanceScale } from 'react-icons/fa'
 import './Servicos.css'
+import terapiaHolisticaImg from '../../images/terapia-holistica-rede-ser-pleno.jpg'
+import bemEstarImg from '../../images/bem-estar-ganha-mais-relevancia_0.avif'
+import autoconhecimentoImg from '../../images/Autoconhecimento.webp'
+import equilibrioEnergeticoImg from '../../images/meditacao-equilibrio-energetico-1210x423.jpg'
 
 function Servicos() {
   const servicos = [
     {
       titulo: 'Terapia Holística',
-      descricao: 'Uma abordagem integrada que considera você como um todo, trabalhando corpo, mente e emoções de forma harmoniosa.'
+      descricao: 'Uma abordagem integrada que considera você como um todo, trabalhando corpo, mente e emoções de forma harmoniosa.',
+      icon: FaLeaf,
+      image: terapiaHolisticaImg
     },
     {
       titulo: 'Bem-estar Emocional',
-      descricao: 'Acompanhamento para encontrar equilíbrio emocional, reduzir ansiedade e melhorar sua qualidade de vida.'
+      descricao: 'Acompanhamento para encontrar equilíbrio emocional, reduzir ansiedade e melhorar sua qualidade de vida.',
+      icon: FaHeart,
+      image: bemEstarImg
     },
     {
       titulo: 'Autoconhecimento',
-      descricao: 'Técnicas e ferramentas para você se conhecer melhor, identificar padrões e criar mudanças positivas.'
+      descricao: 'Técnicas e ferramentas para você se conhecer melhor, identificar padrões e criar mudanças positivas.',
+      icon: FaUser,
+      image: autoconhecimentoImg
     },
     {
       titulo: 'Equilíbrio Energético',
-      descricao: 'Trabalho com técnicas que ajudam a restaurar o fluxo natural de energia, promovendo sensação de bem-estar.'
+      descricao: 'Trabalho com técnicas que ajudam a restaurar o fluxo natural de energia, promovendo sensação de bem-estar.',
+      icon: FaBalanceScale,
+      image: equilibrioEnergeticoImg
     }
   ]
 
@@ -30,15 +43,27 @@ function Servicos() {
           Cada sessão é pensada especialmente para você.
         </p>
         <div className="servicos-grid">
-          {servicos.map((servico, index) => (
-            <div key={index} className="servico-card">
-              <div className="servico-icon">
-                <span className="icon-circle"></span>
+          {servicos.map((servico, index) => {
+            const IconComponent = servico.icon
+            return (
+              <div key={index} className="servico-card">
+                <div className="servico-image-container">
+                  <img 
+                    src={servico.image} 
+                    alt={servico.titulo}
+                    className="servico-image"
+                  />
+                </div>
+                <div className="servico-icon">
+                  <span className="icon-circle">
+                    <IconComponent className="icon-svg" />
+                  </span>
+                </div>
+                <h3>{servico.titulo}</h3>
+                <p>{servico.descricao}</p>
               </div>
-              <h3>{servico.titulo}</h3>
-              <p>{servico.descricao}</p>
-            </div>
-          ))}
+            )
+          })}
         </div>
         <div className="servicos-nota">
           <p>
@@ -53,4 +78,3 @@ function Servicos() {
 }
 
 export default Servicos
-
