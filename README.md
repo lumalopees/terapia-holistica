@@ -27,11 +27,15 @@ Esta é uma aplicação de página única (landing page estilo SPA) projetada pa
 
 ## Stack Tecnológica
 
+- React 18
+- Vite
+- JavaScript (ES6+)
 - HTML5
 - CSS3
-- JavaScript (opcional / mínimo, se aplicável)
 
-*(Ajuste esta seção se você usar um framework como React, Next.js, etc.)*
+## Como Executar
+
+O projeto estará disponível em `http://localhost:5173`
 
 ## Objetivos
 
