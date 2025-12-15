@@ -4,7 +4,7 @@ Uma landing page responsiva desenvolvida para um profissional de bem-estar e ter
 
 ## Visão Geral
 
-Esta é uma aplicação de página única (landing page estilo SPA) projetada para estabelecer presença digital, organizar informações de serviços e guiar usuários em direção a uma ação principal (contato via WhatsApp). O layout prioriza design mobile-first, legibilidade e estrutura semântica, garantindo uma experiência suave em diferentes tamanhos de tela.
+Esta é uma aplicação de página única (landing page estilo SPA) projetada para estabelecer presença digital, organizar informações de serviços e guiar usuários em direção a uma ação principal (contato via WhatsApp). O layout prioriza design mobile-first, legibilidade e estrutura semântica, garantindo uma experiência suave em diferentes tamanhos de tela!
 
 ## Funcionalidades
 
