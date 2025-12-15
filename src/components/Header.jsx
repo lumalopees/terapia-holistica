@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { FaSun, FaMoon } from 'react-icons/fa'
+import { motion, AnimatePresence } from 'framer-motion'
 import './Header.css'
 
 function Header() {
@@ -21,21 +22,78 @@ function Header() {
     document.documentElement.setAttribute('data-theme', newTheme)
   }
 
+  const iconVariants = {
+    initial: { scale: 0, rotate: -180 },
+    animate: { 
+      scale: 1, 
+      rotate: 0,
+      transition: {
+        type: "spring",
+        stiffness: 200,
+        damping: 15
+      }
+    },
+    exit: { 
+      scale: 0, 
+      rotate: 180,
+      transition: {
+        duration: 0.2
+      }
+    }
+  }
+
   return (
-    <header className="header">
+    <motion.header 
+      className="header"
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+    >
       <div className="container">
         <div className="header-content">
-          <h1 className="header-logo">Terapias Holísticas</h1>
-          <button 
+          <motion.h1 
+            className="header-logo"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+          >
+            Terapias Holísticas
+          </motion.h1>
+          <motion.button 
             className="theme-toggle" 
             onClick={toggleTheme}
             aria-label="Alternar modo escuro"
+            whileHover={{ scale: 1.1, rotate: 15 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ type: "spring", stiffness: 300 }}
           >
-            {theme === 'light' ? <FaMoon /> : <FaSun />}
-          </button>
+            <AnimatePresence mode="wait">
+              {theme === 'light' ? (
+                <motion.div
+                  key="moon"
+                  variants={iconVariants}
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                >
+                  <FaMoon />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="sun"
+                  variants={iconVariants}
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                >
+                  <FaSun />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.button>
         </div>
       </div>
-    </header>
+    </motion.header>
   )
 }
 
