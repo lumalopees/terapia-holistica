@@ -1,6 +1,6 @@
 .servicos {
   padding: var(--espacamento-xl) 0;
-  background: linear-gradient(180deg, var(--cor-branco) 0%, var(--cor-verde-claro) 100%);
+  background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-tertiary) 100%);
 }
 
 .servicos-intro {
@@ -8,7 +8,7 @@
   max-width: 700px;
   margin: 0 auto var(--espacamento-lg);
   font-size: 1.1rem;
-  color: var(--cor-texto-medio);
+  color: var(--text-secondary);
   line-height: 1.8;
 }
 
@@ -20,59 +20,76 @@
 }
 
 .servico-card {
-  background-color: var(--cor-branco);
-  padding: var(--espacamento-lg);
+  background-color: var(--bg-primary);
+  padding: 0;
   border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-md);
   transition: all 0.3s ease;
   text-align: center;
+  overflow: hidden;
 }
 
 .servico-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--shadow-lg);
+}
+
+.servico-image-container {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.servico-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.servico-card:hover .servico-image {
+  transform: scale(1.05);
 }
 
 .servico-icon {
-  margin-bottom: var(--espacamento-md);
+  margin: calc(var(--espacamento-md) * -1) auto var(--espacamento-md);
+  position: relative;
+  z-index: 1;
 }
 
 .icon-circle {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 60px;
   height: 60px;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--cor-verde-claro), var(--cor-verde-medio));
-  position: relative;
+  box-shadow: var(--shadow-md);
 }
 
-.icon-circle::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background-color: var(--cor-verde-escuro);
-  opacity: 0.3;
+.icon-svg {
+  color: var(--cor-branco);
+  font-size: 1.5rem;
 }
 
 .servico-card h3 {
-  color: var(--cor-texto-escuro);
+  color: var(--text-primary);
   margin-bottom: var(--espacamento-sm);
   font-size: 1.4rem;
+  padding: 0 var(--espacamento-lg);
 }
 
 .servico-card p {
-  color: var(--cor-texto-medio);
+  color: var(--text-secondary);
   line-height: 1.7;
   font-size: 1rem;
+  padding: 0 var(--espacamento-lg) var(--espacamento-lg);
 }
 
 .servicos-nota {
-  background-color: var(--cor-bege);
+  background-color: var(--bg-secondary);
   padding: var(--espacamento-md);
   border-radius: 10px;
   border-left: 4px solid var(--cor-verde-escuro);
@@ -81,13 +98,13 @@
 }
 
 .servicos-nota p {
-  color: var(--cor-texto-medio);
+  color: var(--text-secondary);
   line-height: 1.8;
   margin: 0;
 }
 
 .servicos-nota strong {
-  color: var(--cor-texto-escuro);
+  color: var(--text-primary);
 }
 
 @media (min-width: 768px) {
@@ -103,7 +120,11 @@
   }
   
   .servico-card {
-    padding: var(--espacamento-lg) var(--espacamento-md);
+    padding: 0;
+  }
+
+  .servico-image-container {
+    height: 220px;
   }
 }
 
@@ -123,16 +144,14 @@
     margin-bottom: var(--espacamento-md);
   }
 
-  .servico-card {
-    padding: var(--espacamento-md);
-  }
-
   .servico-card h3 {
     font-size: 1.2rem;
+    padding: 0 var(--espacamento-md);
   }
 
   .servico-card p {
     font-size: 0.95rem;
+    padding: 0 var(--espacamento-md) var(--espacamento-md);
   }
 
   .servicos-nota {
@@ -142,6 +161,10 @@
 
   .servicos-nota p {
     font-size: 0.95rem;
+  }
+
+  .servico-image-container {
+    height: 180px;
   }
 }
 
@@ -154,17 +177,15 @@
     font-size: 0.95rem;
   }
 
-  .servico-card {
-    padding: var(--espacamento-sm);
-  }
-
   .servico-card h3 {
     font-size: 1.1rem;
     margin-bottom: var(--espacamento-xs);
+    padding: 0 var(--espacamento-sm);
   }
 
   .servico-card p {
     font-size: 0.9rem;
+    padding: 0 var(--espacamento-sm) var(--espacamento-sm);
   }
 
   .icon-circle {
@@ -172,9 +193,11 @@
     height: 50px;
   }
 
-  .icon-circle::after {
-    width: 25px;
-    height: 25px;
+  .icon-svg {
+    font-size: 1.2rem;
+  }
+
+  .servico-image-container {
+    height: 150px;
   }
 }
-

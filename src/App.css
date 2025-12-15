@@ -2,6 +2,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: var(--bg-primary);
 }
 
 main {
@@ -23,4 +24,3 @@ main {
 .fade-in {
   animation: fadeIn 0.8s ease-out;
 }
-

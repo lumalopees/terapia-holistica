@@ -1,82 +1,42 @@
 import React, { useState, useEffect } from 'react'
+import { FaSun, FaMoon } from 'react-icons/fa'
 import './Header.css'
 
 function Header() {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [theme, setTheme] = useState('light')
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-      // Fecha o menu ao rolar a página
-      if (isMenuOpen) {
-        setIsMenuOpen(false)
-      }
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [isMenuOpen])
+    // Verifica se há preferência salva ou usa a preferência do sistema
+    const savedTheme = localStorage.getItem('theme')
+    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+    const initialTheme = savedTheme || systemTheme
+    setTheme(initialTheme)
+    document.documentElement.setAttribute('data-theme', initialTheme)
+  }, [])
 
-  useEffect(() => {
-    // Fecha o menu ao clicar fora
-    const handleClickOutside = (event) => {
-      if (isMenuOpen && !event.target.closest('.nav')) {
-        setIsMenuOpen(false)
-      }
-    }
-
-    if (isMenuOpen) {
-      document.addEventListener('click', handleClickOutside)
-      // Previne scroll do body quando menu está aberto
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = ''
-    }
-
-    return () => {
-      document.removeEventListener('click', handleClickOutside)
-      document.body.style.overflow = ''
-    }
-  }, [isMenuOpen])
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
-
-  const closeMenu = () => {
-    setIsMenuOpen(false)
+  const toggleTheme = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light'
+    setTheme(newTheme)
+    localStorage.setItem('theme', newTheme)
+    document.documentElement.setAttribute('data-theme', newTheme)
   }
 
   return (
-    <>
-      <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
-        <div className="container">
-          <nav className="nav">
-            <div className="logo">
-              <span className="logo-text">Terapias Holísticas</span>
-            </div>
-            <button 
-              className={`menu-toggle ${isMenuOpen ? 'active' : ''}`}
-              onClick={toggleMenu}
-              aria-label="Toggle menu"
-              aria-expanded={isMenuOpen}
-            >
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
-            <ul className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
-              <li><a href="#sobre" onClick={closeMenu}>Sobre</a></li>
-              <li><a href="#servicos" onClick={closeMenu}>Serviços</a></li>
-              <li><a href="#contato" onClick={closeMenu}>Contato</a></li>
-            </ul>
-          </nav>
+    <header className="header">
+      <div className="container">
+        <div className="header-content">
+          <h1 className="header-logo">Terapias Holísticas</h1>
+          <button 
+            className="theme-toggle" 
+            onClick={toggleTheme}
+            aria-label="Alternar modo escuro"
+          >
+            {theme === 'light' ? <FaMoon /> : <FaSun />}
+          </button>
         </div>
-      </header>
-      {isMenuOpen && <div className="menu-overlay" onClick={closeMenu}></div>}
-    </>
+      </div>
+    </header>
   )
 }
 
 export default Header
-
