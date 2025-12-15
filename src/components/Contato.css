@@ -95,13 +95,91 @@
   }
 }
 
+@media (max-width: 768px) {
+  .contato {
+    padding: var(--espacamento-lg) 0;
+  }
+
+  .contato-content {
+    padding: 0 var(--espacamento-sm);
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: var(--espacamento-md);
+  }
+
+  .contato-intro {
+    font-size: 1.05rem;
+    margin-bottom: var(--espacamento-md);
+    padding: 0 var(--espacamento-xs);
+  }
+
+  .btn-whatsapp {
+    padding: 1.1rem 2.5rem;
+    font-size: 1.1rem;
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+
+  .contato-info {
+    font-size: 0.9rem;
+    margin-top: var(--espacamento-xs);
+  }
+
+  .contato-beneficios {
+    padding: var(--espacamento-sm);
+    margin-top: var(--espacamento-md);
+    gap: var(--espacamento-xs);
+  }
+
+  .beneficio-item {
+    font-size: 0.95rem;
+    justify-content: flex-start;
+    padding: var(--espacamento-xs) 0;
+  }
+}
+
 @media (max-width: 480px) {
+  .contato {
+    padding: var(--espacamento-md) 0;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+
+  .contato-intro {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
   .btn-whatsapp {
     padding: 1rem 2rem;
-    font-size: 1.1rem;
+    font-size: 1rem;
+    max-width: 100%;
   }
-  
-  .contato-intro {
+
+  .whatsapp-icon {
+    font-size: 1.3rem;
+  }
+
+  .contato-info {
+    font-size: 0.85rem;
+  }
+
+  .contato-beneficios {
+    padding: var(--espacamento-xs);
+  }
+
+  .beneficio-item {
+    font-size: 0.9rem;
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .beneficio-icon {
     font-size: 1.1rem;
   }
 }
