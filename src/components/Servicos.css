@@ -1,0 +1,109 @@
+.servicos {
+  padding: var(--espacamento-xl) 0;
+  background: linear-gradient(180deg, var(--cor-branco) 0%, var(--cor-verde-claro) 100%);
+}
+
+.servicos-intro {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto var(--espacamento-lg);
+  font-size: 1.1rem;
+  color: var(--cor-texto-medio);
+  line-height: 1.8;
+}
+
+.servicos-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espacamento-md);
+  margin-bottom: var(--espacamento-lg);
+}
+
+.servico-card {
+  background-color: var(--cor-branco);
+  padding: var(--espacamento-lg);
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.servico-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.servico-icon {
+  margin-bottom: var(--espacamento-md);
+}
+
+.icon-circle {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--cor-verde-claro), var(--cor-verde-medio));
+  position: relative;
+}
+
+.icon-circle::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--cor-verde-escuro);
+  opacity: 0.3;
+}
+
+.servico-card h3 {
+  color: var(--cor-texto-escuro);
+  margin-bottom: var(--espacamento-sm);
+  font-size: 1.4rem;
+}
+
+.servico-card p {
+  color: var(--cor-texto-medio);
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+.servicos-nota {
+  background-color: var(--cor-bege);
+  padding: var(--espacamento-md);
+  border-radius: 10px;
+  border-left: 4px solid var(--cor-verde-escuro);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.servicos-nota p {
+  color: var(--cor-texto-medio);
+  line-height: 1.8;
+  margin: 0;
+}
+
+.servicos-nota strong {
+  color: var(--cor-texto-escuro);
+}
+
+@media (min-width: 768px) {
+  .servicos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .servicos-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--espacamento-lg);
+  }
+  
+  .servico-card {
+    padding: var(--espacamento-lg) var(--espacamento-md);
+  }
+}
+
