@@ -22,3 +22,37 @@
   margin: 0;
 }
 
+@media (max-width: 768px) {
+  .footer {
+    padding: var(--espacamento-sm) 0;
+  }
+
+  .footer-content {
+    padding: 0 var(--espacamento-sm);
+  }
+
+  .footer-text {
+    font-size: 0.85rem;
+    margin-bottom: var(--espacamento-xs);
+  }
+
+  .footer-subtext {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: var(--espacamento-sm) 0;
+  }
+
+  .footer-text {
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .footer-subtext {
+    font-size: 0.75rem;
+  }
+}
+

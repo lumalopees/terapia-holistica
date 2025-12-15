@@ -98,3 +98,21 @@ button {
   }
 }
 
+@media (max-width: 480px) {
+  .container {
+    padding: 0 var(--espacamento-xs);
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+}
+
